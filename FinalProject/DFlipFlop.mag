@@ -1,0 +1,68 @@
+magic
+tech scmos
+timestamp 1642196220
+<< metal1 >>
+rect -16 138 82 142
+rect 153 138 187 142
+rect -26 62 -22 64
+rect -16 62 -12 138
+rect 153 131 157 138
+rect 108 127 157 131
+rect 211 127 247 131
+rect 47 107 104 111
+rect 169 107 205 111
+rect 169 75 173 107
+rect -26 58 -12 62
+rect -26 43 -22 58
+rect 229 56 233 127
+rect 175 52 233 56
+rect -26 39 15 43
+rect 34 41 64 45
+rect 60 -13 64 41
+rect -20 -44 -16 -16
+rect 60 -17 87 -13
+rect 153 -19 190 -15
+rect 153 -24 157 -19
+rect 111 -28 157 -24
+rect 247 -26 251 71
+rect 211 -29 251 -26
+rect 211 -30 249 -29
+rect -20 -48 43 -44
+rect 47 -48 105 -44
+rect 175 -50 208 -46
+<< metal2 >>
+rect 43 -44 47 107
+rect 173 71 247 75
+rect 171 -46 175 52
+<< m2contact >>
+rect 43 107 47 111
+rect 169 71 173 75
+rect 171 52 175 56
+rect 247 71 251 75
+rect 43 -48 47 -44
+rect 171 -50 175 -46
+use nand2  nand2_3 ~/Desktop/Ozan_Geckin_1801042103_Assigment3
+timestamp 1642193707
+transform 1 0 165 0 1 129
+box 11 -49 51 53
+use nand2  nand2_2
+timestamp 1642193707
+transform 1 0 168 0 1 -28
+box 11 -49 51 53
+use nand2  nand2_1
+timestamp 1642193707
+transform 1 0 65 0 1 -26
+box 11 -49 51 53
+use nand2  nand2_0
+timestamp 1642193707
+transform 1 0 64 0 1 129
+box 11 -49 51 53
+use inverter  inverter_0 ~/Desktop/Ozan_Geckin_1801042103_Assigment3
+timestamp 1642194810
+transform 1 0 12 0 1 37
+box -12 -37 22 48
+<< labels >>
+rlabel metal1 -26 64 -22 64 3 D
+rlabel space -20 -16 -15 -16 1 clk
+rlabel metal1 247 127 247 131 7 Q
+<< end >>

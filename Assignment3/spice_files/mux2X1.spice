@@ -1,0 +1,81 @@
+* SPICE3 file created from mux2X1.ext - technology: scmos
+
+M1000 Z a_n7_13# a_n12_n7# Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1001 a_n37_7# a Vdd w_n47_6# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1002 a_n12_n7# a_n37_7# GND Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1003 Vdd a_n7_13# Z w_n47_6# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1004 a_n7_13# b Vdd w_n47_6# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1005 a_19_n9# SEL GND Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1006 a_n37_n7# a GND Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1007 a_19_n9# SEL Vdd w_n47_6# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1008 a_n7_13# a_19_n9# a_13_n7# Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1009 Vdd SEL a_n37_7# w_n47_6# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1010 a_n37_7# SEL a_n37_n7# Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1011 Z a_n37_7# Vdd w_n47_6# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1012 a_13_n7# b GND Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1013 Vdd a_19_n9# a_n7_13# w_n47_6# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+C0 a_n7_13# w_n47_6# 4.07fF
+C1 b w_n47_6# 1.19fF
+C2 SEL a_n37_7# 0.24fF
+C3 Z a_n7_13# 0.24fF
+C4 Z w_n47_6# 0.19fF
+C5 a_n7_13# a_19_n9# 0.24fF
+C6 w_n47_6# a 1.19fF
+C7 w_n47_6# a_n37_7# 4.07fF
+C8 SEL w_n47_6# 2.39fF
+C9 w_n47_6# a_19_n9# 4.97fF
+C10 GND Gnd 17.34fF
+C11 Z Gnd 2.82fF
+C12 SEL Gnd 6.20fF
+C13 b Gnd 3.10fF
+C14 a Gnd 3.10fF
+C15 a_19_n9# Gnd 9.58fF
+C16 a_n7_13# Gnd 10.15fF
+C17 a_n37_7# Gnd 10.15fF
+
+VCC    Vdd     GND     DC=2.5
+
+
+* The following two lines are for TRANSIENT analysis
+*
+*Vname +Node -Node Option T1  V1   T2  V2   T3   V3    T4  V4  T5   V5 
+*----- ----- ----- ------ --  --   --  --   ---- --    --  --  ---- -- 
+Vin     a     GND    PWL(   0   0    30N  0    30.1N 2.5   60N  2.5 60.1N 0  90N 0 90.1N 2.5 120N 2.5) 
+
+*Vname +Node -Node Option T1  V1   T2  V2   T3   V3    T4  V4  T5   V5 
+*----- ----- ----- ------ --  --   --  --   ---- --    --  --  ---- -- 
+Vin2     b    GND    PWL(   0   2.5    30N  2.5    30.1N 0   60N  0 60.1N  0  90N 0 90.1N 2.5 120N 2.5) 
+
+*Vname +Node -Node Option T1  V1   T2  V2   T3   V3    T4  V4  T5   V5 
+*----- ----- ----- ------ --  --   --  --   ---- --    --  --  ---- -- 
+Vin3     SEL     GND    PWL(   0   2.5    30N  2.5    30.1N 0   60N  0 60.1N  0  90N 0 90.1N 2.5 120N 2.5)
+
+
+*     TSTEP TSTOP
+*     ----- -----
+.TRAN 5N  120N
+
+
+* TEMPERATURE and OPTIONS SETTING
+
+.OPTIONS TEMP=25 reltol = 1e-6 
+
+*MODELS
+
+.include tsmc_cmos025
+
+.END

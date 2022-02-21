@@ -1,0 +1,50 @@
+* SPICE3 file created from nand2.ext - technology: scmos
+
+M1000 a_2_n10# A GND Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1001 Z A vdd w_n6_1# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1002 Z B a_2_n10# Gnd nmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+M1003 vdd B Z w_n6_1# pmos w=4u l=2u
++  ad=0p pd=0u as=0p ps=0u
+C0 Z w_n6_1# 0.56fF
+C1 vdd w_n6_1# 0.85fF
+C2 B w_n6_1# 1.67fF
+C3 B Z 0.18fF
+C4 A w_n6_1# 1.67fF
+C5 GND Gnd 3.24fF
+C6 Z Gnd 2.16fF
+C7 vdd Gnd 3.10fF
+C8 B Gnd 2.62fF
+C9 A Gnd 2.62fF
+
+VCC    Vdd     GND     DC=2.5
+
+
+* The following two lines are for TRANSIENT analysis
+*
+*Vname +Node -Node Option T1  V1   T2  V2   T3   V3    T4  V4  T5   V5 
+*----- ----- ----- ------ --  --   --  --   ---- --    --  --  ---- -- 
+Vin     A     GND    PWL(   0   0    30N  0    30.1N 2.5   60N  2.5 60.1N  2.5  90N 2.5 90.1N 0 120N 0) 
+
+*Vname +Node -Node Option T1  V1   T2  V2   T3   V3    T4  V4  T5   V5 
+*----- ----- ----- ------ --  --   --  --   ---- --    --  --  ---- -- 
+Vin2     B     GND    PWL(   0   0    30N  0    30.1N 2.5   60N  2.5 60.1N  0  90N 0 90.1N 2.5 120N 2.5) 
+
+
+*     TSTEP TSTOP
+*     ----- -----
+.TRAN 5N  120N
+
+
+* TEMPERATURE and OPTIONS SETTING
+
+.OPTIONS TEMP=25 reltol = 1e-6 
+
+*MODELS
+
+.include tsmc_cmos025
+
+.END
+
